@@ -89,9 +89,7 @@ const Footer = () => (
             &copy; <a href="#">Your Site Name</a>, All Rights Reserved.
           </div>
           <div className="col-md-6 text-center text-md-end">
-            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
-            <br />
-            Distributed By <a href="https://themewagon.com" target="_blank" rel="noreferrer">ThemeWagon</a>
+            Designed By <a href="#">Team Nova</a>
           </div>
         </div>
       </div>

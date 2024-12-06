@@ -55,7 +55,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <a href="#" className="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">
+        <a href="/free-quote" className="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">
           Get A Quote <i className="fa fa-arrow-right ms-3"></i>
         </a>
       </div>

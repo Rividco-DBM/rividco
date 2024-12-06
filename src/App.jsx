@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
-import NotFound from "./components/NotFound";
+import NotFound from "./pages/NotFoundPage";
 import ContactPage from "./pages/ContactPage";
 import ServicePage from "./pages/ServicePage";
 import FeaturePage from "./pages/FeaturePage";
