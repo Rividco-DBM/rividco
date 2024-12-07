@@ -42,6 +42,7 @@ const AboutUsSection = () => {
               <p>
                 <i className="fa fa-check-circle text-primary me-3"></i> Tempor erat elitr rebum
               </p>
+              
               <a href="/" className="btn btn-primary rounded-pill py-3 px-5 mt-3">
                 Explore More
               </a>
