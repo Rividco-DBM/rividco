@@ -1,6 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios"; // Import axios
 
 const GetAFreeQuoteSection = () => {
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    mobile: '',
+    service: '',
+    note: ''
+  });
+
+  const [loading, setLoading] = useState(false); 
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
+
+
+  // 2. Handle form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  // 3. Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent the default form submission
+    setLoading(true);
+    setError(null);
+    setSuccess(null);
+
+    // 4. Send data to backend using axios
+    try {
+      console.log("hi");
+      const response = await axios.post("http://localhost:8080/api/quote", formData );
+
+      console.log(response);
+
+      if (response.data.success) {
+        setSuccess("Your request has been submitted successfully!");
+      } else {
+        setError(response.data.message || "An error occurred.");
+      }
+    } catch (err) {
+      // Handle any errors from the server or network issues
+      setError("Network error. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="container-fluid bg-light overflow-hidden px-lg-0" style={{ margin: "6rem 0" }}>
       <div className="container quote px-lg-0">
@@ -23,12 +74,12 @@ const GetAFreeQuoteSection = () => {
             <div className="p-lg-5 pe-lg-0">
               <h6 className="text-primary">Free Quote</h6>
               <h1 className="mb-4">Get A Free Quote</h1>
-              <p className="mb-4 pb-2">
-                Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam
-                et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat
-                amet
-              </p>
-              <form>
+
+              {/* Success/Error Messages */}
+              {success && <div className="alert alert-success">{success}</div>}
+              {error && <div className="alert alert-danger">{error}</div>}
+
+              <form onSubmit={handleSubmit}>
                 <div className="row g-3">
                   <div className="col-12 col-sm-6">
                     <input
@@ -36,6 +87,9 @@ const GetAFreeQuoteSection = () => {
                       className="form-control border-0"
                       placeholder="Your Name"
                       style={{ height: "55px" }}
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
                     />
                   </div>
                   <div className="col-12 col-sm-6">
@@ -44,6 +98,9 @@ const GetAFreeQuoteSection = () => {
                       className="form-control border-0"
                       placeholder="Your Email"
                       style={{ height: "55px" }}
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                     />
                   </div>
                   <div className="col-12 col-sm-6">
@@ -52,25 +109,37 @@ const GetAFreeQuoteSection = () => {
                       className="form-control border-0"
                       placeholder="Your Mobile"
                       style={{ height: "55px" }}
+                      name="mobile"
+                      value={formData.mobile}
+                      onChange={handleInputChange}
                     />
                   </div>
                   <div className="col-12 col-sm-6">
-                    <select className="form-select border-0" style={{ height: "55px" }}>
-                      <option selected>Select A Service</option>
-                      <option value="1">Service 1</option>
-                      <option value="2">Service 2</option>
-                      <option value="3">Service 3</option>
+                    <select
+                      className="form-select border-0"
+                      style={{ height: "55px" }}
+                      name="service"
+                      value={formData.service}
+                      onChange={handleInputChange}
+                    >
+                      <option value="">Select A Service</option>
+                      <option value="Solar">Solar</option>
+                      <option value="Mini Hydro">Mini Hydro</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
                   <div className="col-12">
                     <textarea
                       className="form-control border-0"
                       placeholder="Special Note"
+                      name="note"
+                      value={formData.note}
+                      onChange={handleInputChange}
                     ></textarea>
                   </div>
                   <div className="col-12">
-                    <button className="btn btn-primary rounded-pill py-3 px-5" type="submit">
-                      Submit
+                    <button className="btn btn-primary rounded-pill py-3 px-5" type="submit" disabled={loading}>
+                      {loading ? "Submitting..." : "Submit"}
                     </button>
                   </div>
                 </div>
@@ -84,3 +153,4 @@ const GetAFreeQuoteSection = () => {
 };
 
 export default GetAFreeQuoteSection;
+
