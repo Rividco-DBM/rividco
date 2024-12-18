@@ -54,7 +54,7 @@ const App = () => {
       property="og:description" 
       content="Join the solar revolution with RividCo! Explore top-notch solar panel systems designed to maximize efficiency and sustainability." 
     />
-    <meta property="og:url" content="https://www.rividco.com" />
+    <meta property="og:url" content="https://rividco.netlify.app/" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://www.rividco.com/images/solar-panel.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
