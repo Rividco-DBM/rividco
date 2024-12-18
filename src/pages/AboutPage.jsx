@@ -9,8 +9,8 @@ import AboutUsSection from "../components/AboutUsSection";
 
 
 const AboutPage = () => {
-
       
+  
   return (
     <>
       
