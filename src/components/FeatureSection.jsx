@@ -12,7 +12,7 @@ const features = [
 
 const FeatureSection = () => (
   <div className="container-xxl py-5">
-     <span className="centered-text" >   Welcome to RIVIDCO, where we believe solar energy isn’t just about saving the planet—it’s about delivering premium solutions that last. We are committed to providing high-quality solar products and services, ensuring every system we install is built to perform reliably for years to come.</span>
+     <span className="centered-text" >  </span>
     <div className="container">
    
       <div className="row g-5">
