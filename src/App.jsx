@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 import Spinner from "./components/Spinner";
 import Topbar from "./components/Topbar";
 import Navbar from "./components/Navbar";
@@ -33,6 +34,39 @@ const App = () => {
   }
 
   return (
+    <HelmetProvider>
+    {/* Default metadata for the entire application */}
+      <Helmet>
+    <title>RividCo - Innovative Solar Panel Solutions</title>
+    <meta 
+      name="description" 
+      content="RividCo specializes in providing innovative and eco-friendly solar panel solutions. Discover our cutting-edge technology to power a sustainable future." 
+    />
+    <meta 
+      name="keywords" 
+      content="RividCo, solar panels, renewable energy, sustainable solutions, eco-friendly technology, solar power, green energy solutions" 
+    />
+    <meta name="author" content="RividCo Team" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="RividCo - Innovative Solar Panel Solutions" />
+    <meta 
+      property="og:description" 
+      content="Join the solar revolution with RividCo! Explore top-notch solar panel systems designed to maximize efficiency and sustainability." 
+    />
+    <meta property="og:url" content="https://rividco.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.rividco.com/images/solar-panel.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RividCo - Innovative Solar Panel Solutions" />
+    <meta 
+      name="twitter:description" 
+      content="Discover RividCo's innovative solar panel solutions for sustainable energy. Power your future with renewable technology." 
+    />
+    <meta name="twitter:image" content="https://www.rividco.com/images/solar-panel.jpg" />
+    
+  </Helmet>
+    
     <Router>
       <Topbar />
       <Navbar />
@@ -50,6 +84,7 @@ const App = () => {
       </Routes>
       <Footer />
     </Router>
+    </HelmetProvider> 
   );
 };
 

@@ -26,19 +26,19 @@ const HomePage = () => {
     {
       img: "/assets/img/carousel-1.jpg",
       title: "Pioneers Of Solar And <br /> Renewable Energy",
-      description: "Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no.",
+      description: "Leading the way in providing innovative and sustainable solar and renewable energy solutions.",
       buttonText: "Read More",
     },
     {
       img: "/assets/img/carousel-2.jpg",
       title: "Trusted Renewable Energy Partner",
-      description: "Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.",
+      description: "Your reliable partner in transitioning to efficient and clean energy for a better future.",
       buttonText: "Discover Now",
     },
     {
       img: "/assets/img/carousel-3.jpg",
       title: "Innovative Energy Solutions",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      description: "Offering cutting-edge energy technologies to meet your modern energy needs.",
       buttonText: "Explore More",
     },
   ];
