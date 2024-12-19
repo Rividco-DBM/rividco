@@ -872,4 +872,11 @@
       height: 70px;
     }
   }
+  .project-description {
+    text-align: justify;
+    font-weight: normal;
+    color: #555; /* Adjust the color as needed */
+    line-height: 1.6; /* Adjust the line height as needed */
+    margin-top: 10px; /* Adjust the margin as needed */
+  }
   

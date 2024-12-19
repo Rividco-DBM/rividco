@@ -4,33 +4,30 @@ import "../assets/css/style.css";
 import "../assets/lib/animate/animate.min.css";
 import "../assets/lib/lightbox/css/lightbox.min.css";
 import WOW from "wowjs";
+import axios from "axios";
 
 const ProjectSection = () => {
   const [activeFilter, setActiveFilter] = useState("*");
+  const [projects, setProjects] = useState([]);
   const [filteredProjects, setFilteredProjects] = useState([]);
-
-  const projects = [
-    { img: "/assets/img/img-600x400-6.jpg", title: "Solar Panels", category: "first" },
-    { img: "/assets/img/img-600x400-5.jpg", title: "Wind Turbines", category: "second" },
-    { img: "/assets/img/img-600x400-4.jpg", title: "Hydropower Plants", category: "third" },
-    { img: "/assets/img/img-600x400-3.jpg", title: "Solar Panels", category: "first" },
-    { img: "/assets/img/img-600x400-2.jpg", title: "Wind Turbines", category: "second" },
-    { img: "/assets/img/img-600x400-1.jpg", title: "Hydropower Plants", category: "third" },
-  ];
-
-  const filters = [
-    { label: "All", value: "*" },
-    { label: "Solar Panels", value: "first" },
-    { label: "Wind Turbines", value: "second" },
-    { label: "Hydropower Plants", value: "third" },
-  ];
+  const [filters, setFilters] = useState([{ label: "All", value: "*" }]);
 
   useEffect(() => {
-    if (activeFilter === "*") {
-      setFilteredProjects(projects);
-    } else {
-      setFilteredProjects(projects.filter((project) => project.category === activeFilter));
-    }
+    // Fetch data from the backend
+    axios.get("http://localhost:8080/api/projects")
+      .then(response => {
+        console.log("Data retrieved from backend:", response.data);
+        setProjects(response.data);
+        setFilteredProjects(response.data);
+
+        // Extract unique categories from the projects
+        const categories = [...new Set(response.data.map(project => project.category))];
+        const categoryFilters = categories.map(category => ({ label: category, value: category }));
+        setFilters([{ label: "All", value: "*" }, ...categoryFilters]);
+      })
+      .catch(error => {
+        console.error("Error fetching data from backend:", error);
+      });
 
     // Initialize WOW.js for animations
     new WOW.WOW().init();
@@ -43,7 +40,15 @@ const ProjectSection = () => {
       fadeDuration: 300,
       imageFadeDuration: 300,
     });
-  }, [activeFilter]);
+  }, []);
+
+  useEffect(() => {
+    if (activeFilter === "*") {
+      setFilteredProjects(projects);
+    } else {
+      setFilteredProjects(projects.filter((project) => project.category === activeFilter));
+    }
+  }, [activeFilter, projects]);
 
   const handleFilterChange = (filter) => {
     setActiveFilter(filter);
@@ -79,21 +84,21 @@ const ProjectSection = () => {
         <div className="row g-4 portfolio-container wow fadeInUp" data-wow-delay="0.05s">
           {filteredProjects.map((project, index) => (
             <div
-              key={index}
+              key={project._id}
               className={`col-lg-4 col-md-6 portfolio-item ${project.category} wow fadeInUp`}
               data-wow-delay={`${index * 0.2}s`}
             >
-              <div className="portfolio-img rounded overflow-hidden">
+              <div className="portfolio-img rounded overflow-hidden" style={{ width: "100%", height: "250px" }}>
                 <img
                   className="img-fluid"
-                  src={project.img}
+                  src={project.images[0]} // Use the Firebase URL directly
                   alt={project.title}
-                  style={{ animation: "fadeIn 1s ease" }}
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
                 <div className="portfolio-btn">
                   <a
                     className="btn btn-lg-square btn-outline-light rounded-circle mx-1"
-                    href={project.img}
+                    href={project.images[0]} // Use the Firebase URL directly
                     data-lightbox="portfolio"
                     data-title={project.title}
                   >
@@ -110,8 +115,17 @@ const ProjectSection = () => {
               <div className="pt-3">
                 <p className="text-primary mb-0">{project.title}</p>
                 <hr className="text-primary w-25 my-2" />
-                <h5 className="lh-base">
-                  We Are pioneers of solar & renewable energy industry
+                <h5
+                  className="lh-base"
+                  style={{
+                    textAlign: "justify",
+                    fontWeight: "normal",
+                    color: "#555",
+                    lineHeight: "1.6",
+                    marginTop: "10px",
+                  }}
+                >
+                  {project.description}
                 </h5>
               </div>
             </div>
