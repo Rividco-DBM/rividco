@@ -36,7 +36,7 @@ const App = () => {
   return (
     <HelmetProvider>
     {/* Default metadata for the entire application */}
-    <Helmet>
+      <Helmet>
     <title>RividCo - Innovative Solar Panel Solutions</title>
     <meta 
       name="description" 
@@ -64,6 +64,7 @@ const App = () => {
       content="Discover RividCo's innovative solar panel solutions for sustainable energy. Power your future with renewable technology." 
     />
     <meta name="twitter:image" content="https://www.rividco.com/images/solar-panel.jpg" />
+    
   </Helmet>
     
     <Router>
