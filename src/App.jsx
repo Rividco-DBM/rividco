@@ -15,6 +15,8 @@ import ProjectPage from "./pages/ProjectPage";
 import QuotePage from "./pages/QuotePage";
 import TeamPage from "./pages/TeamPage";
 import TestimonialPage from "./pages/TestimonialPage";
+import BlogPage from "./pages/BlogPage";
+
 
 const App = () => {
   const [loading, setLoading] = useState(true); // Spinner visibility state
@@ -80,6 +82,7 @@ const App = () => {
         <Route path="/free-quote" element={<QuotePage />} />
         <Route path="/our-team" element={<TeamPage />} />
         <Route path="/testimonial" element={<TestimonialPage />} />
+        <Route path="/blog" element={<BlogPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
