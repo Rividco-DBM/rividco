@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import axios from "axios";
 import './FeatureSection.css';
+import BASE_URL from "../config"; // Import BASE_URL
 
 const FeatureSection = () => {
   const [features, setFeatures] = useState([
@@ -13,7 +14,7 @@ const FeatureSection = () => {
 
   useEffect(() => {
     // Fetch data from the backend
-    axios.get("https://rividco.vercel.app/api/summary")
+    axios.get(`${BASE_URL}/summary`)
       .then(response => {
         console.log("Data retrieved from backend:", response.data);
 
