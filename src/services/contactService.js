@@ -1,23 +1,20 @@
 import BASE_URL from "../config";
 
+import axios from 'axios';
+
 export const sendContactForm = async (data) => {
   try {
-    const response = await fetch(`${BASE_URL}/contact/send`, {
-      method: "POST",
+    const response = await axios.post(`${BASE_URL}/contact/send`, data, {
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
     });
 
-    const result = await response.json();
-
-    if (!response.ok) {
-      throw new Error(result.message || "Failed to send the contact form. Please try again.");
-    }
-
-    return { success: true, message: result.message || "Message sent successfully!" };
+    return { success: true, message: response.data.message || 'Message sent successfully!' };
   } catch (error) {
-    return { success: false, message: error.message || "Failed to send the contact form." };
+    return {
+      success: false,
+      message: error.response?.data?.message || 'Failed to send the contact form.',
+    };
   }
 };
