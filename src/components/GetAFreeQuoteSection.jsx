@@ -35,7 +35,7 @@ const GetAFreeQuoteSection = () => {
     // 4. Send data to backend using axios
     try {
       console.log("hi");
-      const response = await axios.post("http://localhost:8080/api/quote", formData );
+      const response = await axios.post("https://rividco.vercel.app/api/quote", formData );
 
       console.log(response);
 

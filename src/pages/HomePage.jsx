@@ -15,6 +15,8 @@ import ProjectSection from "../components/ProjectSection";
 import GetAFreeQuoteSection from "../components/GetAFreeQuoteSection";
 import TeamSection from "../components/TeamSection";
 import TestimonialSection from "../components/TestimonialSection";
+import BlogSection from "../components/BlogSection";
+
 
 
 const HomePage = () => {
@@ -100,6 +102,9 @@ const HomePage = () => {
 
       {/* Testimonial Section */}
       <TestimonialSection />
+
+      {/* Blog Section */}
+      <BlogSection />
 
     </>
   );

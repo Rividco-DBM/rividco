@@ -43,6 +43,7 @@ const Navbar = () => {
                 { name: 'Free Quote', path: '/free-quote' },
                 { name: 'Our Team', path: '/our-team' },
                 { name: 'Testimonial', path: '/testimonial' },
+                { name: 'Our Blog', path: '/blog' },
                 { name: '404 Page', path: '/404' },
               ].map((page, idx) => (
                 <Link

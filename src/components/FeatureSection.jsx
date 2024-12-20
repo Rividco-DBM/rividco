@@ -13,9 +13,10 @@ const FeatureSection = () => {
 
   useEffect(() => {
     // Fetch data from the backend
-    axios.get("http://localhost:8080/api/summary")
+    axios.get("https://rividco.vercel.app/api/summary")
       .then(response => {
         console.log("Data retrieved from backend:", response.data);
+
         const updatedFeatures = [
           { icon: "fa-users", value: response.data.totalProjects, label: "Happy Customers" },
           { icon: "fa-check", value: response.data.totalServices, label: "Services Provided" },
