@@ -37,23 +37,24 @@ const TestimonialSection = () => {
   const testimonials = [
     {
       image: "/assets/img/testimonial-1.jpg",
-      text: "Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.",
-      name: "Client Name",
-      profession: "Profession",
+      text: "The solar panel installation was seamless, and the team was extremely professional. Our energy bills have significantly reduced, and we're thrilled to be contributing to a sustainable future.",
+      name: "Emily Carter",
+      profession: "Homeowner",
     },
     {
       image: "/assets/img/testimonial-2.jpg",
-      text: "Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.",
-      name: "Client Name",
-      profession: "Profession",
+      text: "Switching to renewable energy has been the best decision for our business. The team provided excellent consultation and support throughout the process. Highly recommend their services!",
+      name: "John Anderson",
+      profession: "Business Owner",
     },
     {
       image: "/assets/img/testimonial-3.jpg",
-      text: "Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.",
-      name: "Client Name",
-      profession: "Profession",
+      text: "We were impressed with the efficiency and quality of the renewable energy solutions provided. It’s amazing to see the impact not just on our savings but also on the environment.",
+      name: "Michael Johnson",
+      profession: "Environmental Activist",
     },
   ];
+  
 
   const sliderSettings = {
     dots: true,
