@@ -2,7 +2,7 @@ import BASE_URL from "../config";
 
 export const subscribeNewsletter = async (email) => {
   try {
-    const response = await fetch(`${BASE_URL}/newsletter/subscribe`, {
+    const response = await fetch(`https://rividco.vercel.app/newsletter/subscribe`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
