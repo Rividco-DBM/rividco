@@ -6,6 +6,7 @@ import "../assets/css/style.css";
 import "../assets/lib/animate/animate.min.css";
 import "../assets/lib/owlcarousel/assets/owl.carousel.min.css";
 import "../assets/lib/lightbox/css/lightbox.min.css";
+import BASE_URL from "../config"; // Import BASE_URL
 
 const ServiceSection = () => {
   const [services, setServices] = useState([]);
@@ -31,7 +32,7 @@ const ServiceSection = () => {
     new WOW.WOW().init();
 
     // Fetch data from the backend
-    axios.get("https://rividco.vercel.app/api/services")
+    axios.get(`${BASE_URL}/services`)
       .then(response => {
         console.log("Data retrieved from backend:", response.data);
         const servicesWithIcons = response.data.map(service => ({
