@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export const sendContactForm = async (data) => {
   try {
-    const response = await axios.post("https://rividco.vercel.app/api/contact/send", data, {
+    const response = await axios.post(`${BASE_URL}/contact/send`, data, {
       headers: {
         'Content-Type': 'application/json',
       },

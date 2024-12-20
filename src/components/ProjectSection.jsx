@@ -5,6 +5,7 @@ import "../assets/lib/animate/animate.min.css";
 import "../assets/lib/lightbox/css/lightbox.min.css";
 import WOW from "wowjs";
 import axios from "axios";
+import BASE_URL from "../config"; // Import BASE_URL
 
 const ProjectSection = () => {
   const [activeFilter, setActiveFilter] = useState("*");
@@ -14,7 +15,7 @@ const ProjectSection = () => {
 
   useEffect(() => {
     // Fetch data from the backend
-    axios.get("https://rividco.vercel.app/api/projects")
+    axios.get(`${BASE_URL}/projects`)
       .then(response => {
         console.log("Data retrieved from backend:", response.data);
         setProjects(response.data);
