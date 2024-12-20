@@ -14,7 +14,7 @@ const ProjectSection = () => {
 
   useEffect(() => {
     // Fetch data from the backend
-    axios.get("http://localhost:8080/api/projects")
+    axios.get("https://rividco.vercel.app/api/projects")
       .then(response => {
         console.log("Data retrieved from backend:", response.data);
         setProjects(response.data);

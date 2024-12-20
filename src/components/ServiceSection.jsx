@@ -31,7 +31,7 @@ const ServiceSection = () => {
     new WOW.WOW().init();
 
     // Fetch data from the backend
-    axios.get("http://localhost:8080/api/services")
+    axios.get("https://rividco.vercel.app/api/services")
       .then(response => {
         console.log("Data retrieved from backend:", response.data);
         const servicesWithIcons = response.data.map(service => ({
