@@ -77,7 +77,7 @@ const Footer = () => {
                 className="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"
                 onClick={handleSubscribe}
               >
-                SignUp
+                Subscribe
               </button>
             </div>
             {message && <p className="text-white mt-3">{message}</p>}
