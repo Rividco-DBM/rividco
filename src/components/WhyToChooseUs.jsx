@@ -4,7 +4,7 @@ const WhyToChooseUs = () => {
   const reasons = [
     { icon: "fa-check", title: "Quality Services" },
     { icon: "fa-user-check", title: "Expert Workers" },
-    { icon: "fa-drafting-compass", title: "Free Consultation" },
+    { icon: "fa-drafting-compass", title: "Consulting Services" },
     { icon: "fa-headphones", title: "Customer Support" },
   ];
 
