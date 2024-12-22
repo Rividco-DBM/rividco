@@ -24,5 +24,4 @@
 [[plugins]]
 package = "@netlify/plugin-sitemap"
   [plugins.inputs]
-  buildDir = "public" # Adjust if your build directory is different
   baseUrl = "https://rividco.netlify.app"
