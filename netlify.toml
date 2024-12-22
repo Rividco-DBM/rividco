@@ -21,7 +21,4 @@
     Access-Control-Allow-Headers = "Content-Type, Authorization"
     Access-Control-Allow-Credentials = "true"
 
-[[plugins]]
-package = "@netlify/plugin-sitemap"
-  [plugins.inputs]
-  baseUrl = "https://rividco.netlify.app"
+
