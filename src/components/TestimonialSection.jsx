@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -6,6 +6,8 @@ import "../assets/css/bootstrap.min.css";
 import "../assets/css/style.css";
 import "../assets/lib/animate/animate.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import axios from "axios";
+import BASE_URL from "../config"; // Import BASE_URL for API calls
 
 const NextArrow = (props) => {
   const { className, style, onClick } = props;
@@ -34,27 +36,19 @@ const PrevArrow = (props) => {
 };
 
 const TestimonialSection = () => {
-  const testimonials = [
-    {
-      image: "/assets/img/testimonial-1.jpg",
-      text: "The solar panel installation was seamless, and the team was extremely professional. Our energy bills have significantly reduced, and we're thrilled to be contributing to a sustainable future.",
-      name: "Emily Carter",
-      profession: "Homeowner",
-    },
-    {
-      image: "/assets/img/testimonial-2.jpg",
-      text: "Switching to renewable energy has been the best decision for our business. The team provided excellent consultation and support throughout the process. Highly recommend their services!",
-      name: "John Anderson",
-      profession: "Business Owner",
-    },
-    {
-      image: "/assets/img/testimonial-3.jpg",
-      text: "We were impressed with the efficiency and quality of the renewable energy solutions provided. It’s amazing to see the impact not just on our savings but also on the environment.",
-      name: "Michael Johnson",
-      profession: "Environmental Activist",
-    },
-  ];
-  
+  const [testimonials, setTestimonials] = useState([]);
+
+  useEffect(() => {
+    // Fetch testimonials data from backend
+    axios.get(`${BASE_URL}/testimonials`)
+      .then((response) => {
+        console.log("Testimonials fetched:", response.data);
+        setTestimonials(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching testimonials:", error);
+      });
+  }, []);
 
   const sliderSettings = {
     dots: true,
@@ -86,7 +80,7 @@ const TestimonialSection = () => {
           data-wow-delay="0.1s"
         >
           {testimonials.map((testimonial, index) => (
-            <div className="testimonial-card-container" key={index}>
+            <div className="testimonial-card-container" key={testimonial._id}>
               <div className="testimonial-item">
                 <div className="testimonial-img position-relative">
                   <img

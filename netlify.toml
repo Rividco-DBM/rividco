@@ -1,4 +1,24 @@
+# Redirect for SPA routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+# Redirect for API proxying
+[[redirects]]
+  from = "/api/*"
+  to = "https://rividco.vercel.app/api/:splat"
+  status = 200
+  force = true
+
+
+# CORS headers for the API
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://rividco.netlify.app"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Access-Control-Allow-Credentials = "true"
+
+

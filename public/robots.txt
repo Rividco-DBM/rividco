@@ -1,3 +1,6 @@
-# https://www.robotstxt.org/robotstxt.html
+# Allow all web crawlers to access your site
 User-agent: *
 Disallow:
+
+# Specify the location of your sitemap
+Sitemap: https://rividco.netlify.app/sitemap.xml

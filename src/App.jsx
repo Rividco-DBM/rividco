@@ -39,7 +39,7 @@ const App = () => {
     <HelmetProvider>
     {/* Default metadata for the entire application */}
       <Helmet>
-    <title>RividCo - Innovative Solar Panel Solutions</title>
+    <title>Rividco - Innovative Solar Panel Solutions</title>
     <meta 
       name="description" 
       content="RividCo specializes in providing innovative and eco-friendly solar panel solutions. Discover our cutting-edge technology to power a sustainable future." 
